@@ -1,10 +1,18 @@
+require('dotenv').config()
 
 const express = require('express')
 const app = express()
-const port = process.env.Port || 3000
+const port = process.env.PORT || 3000
 
-require('dotenv').config()
+// Middleware (top pe)
+app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log("Request aaya");
+  next();
+});
+
+// Routes
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -28,11 +36,11 @@ app.get("/user/:name", (req, res) => {
   res.send(`Hello ${req.params.name}`);
 });
 
-app.use((req, res, next) => {
-  console.log("Request aaya");
-  next();
+app.post("/user", (req, res) => {
+  console.log(req.body);
+  res.send("Data received");
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server running on port ${port}`)
 })
