@@ -1,0 +1,17 @@
+{
+  "name": "prac-backend",
+  "version": "1.0.0",
+  "description": "A simple backend server for practice",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Mansh123",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
